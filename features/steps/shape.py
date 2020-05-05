@@ -11,8 +11,8 @@ import hashlib
 from behave import given, then, when
 
 from docx import Document
-from docx.enum.shape import WD_INLINE_SHAPE
-from docx.shape import InlineShape
+from docx.enum.shape import WD_INLINE_SHAPE, WD_ANCHOR_SHAPE
+from docx.shape import InlineShape, AnchorShape
 from docx.shared import Inches
 
 from helpers import test_docx

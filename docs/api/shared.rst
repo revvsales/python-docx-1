@@ -18,6 +18,10 @@ addition, it has built-in units conversion properties, e.g.::
     914400
     >>> inline_shape.height.inches
     1.0
+    >>> anchor_shape.height
+    914400
+    >>> anchor_shape.height.inches
+    1.0
 
 Length objects are constructed using a selection of convenience constructors,
 allowing values to be expressed in the units most appropriate to the context.

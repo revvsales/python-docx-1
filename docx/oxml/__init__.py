@@ -113,6 +113,7 @@ from .shape import (  # noqa
     CT_GraphicalObject,
     CT_GraphicalObjectData,
     CT_Inline,
+    CT_Anchor,
     CT_NonVisualDrawingProps,
     CT_Picture,
     CT_PictureNonVisual,
@@ -135,6 +136,7 @@ register_element_cls('pic:spPr',      CT_ShapeProperties)
 register_element_cls('wp:docPr',      CT_NonVisualDrawingProps)
 register_element_cls('wp:extent',     CT_PositiveSize2D)
 register_element_cls('wp:inline',     CT_Inline)
+register_element_cls('wp:anchor',     CT_Anchor)
 
 from .styles import CT_LatentStyles, CT_LsdException, CT_Style, CT_Styles  # noqa
 register_element_cls('w:basedOn',        CT_String)

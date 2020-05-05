@@ -49,6 +49,12 @@ class CT_InlineBuilder(BaseBuilder):
     __attrs__ = ('distT', 'distB', 'distL', 'distR')
 
 
+class CT_AnchoreBuilder(BaseBuilder):
+    __tag__ = 'wp:anchor'
+    __nspfxs__ = ('wp',)
+    __attrs__ = ('distT', 'distB', 'distL', 'distR')
+
+
 class CT_NonVisualDrawingPropsBuilder(BaseBuilder):
     __nspfxs__ = ('wp',)
     __attrs__ = ('id', 'name', 'descr', 'hidden', 'title')
@@ -193,6 +199,10 @@ def an_extent():
 
 def an_inline():
     return CT_InlineBuilder()
+
+
+def an_anchor():
+    return CT_AnchorBuilder()
 
 
 def an_nvPicPr():

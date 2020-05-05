@@ -11,7 +11,7 @@ from docx.parts.numbering import NumberingPart
 from docx.parts.settings import SettingsPart
 from docx.parts.story import BaseStoryPart
 from docx.parts.styles import StylesPart
-from docx.shape import InlineShapes
+from docx.shape import InlineShapes, AnchorShapes
 from docx.shared import lazyproperty
 
 
@@ -88,6 +88,14 @@ class DocumentPart(BaseStoryPart):
         document.
         """
         return InlineShapes(self._element.body, self)
+
+    @lazyproperty
+    def anchor_shapes(self):
+        """
+        The |AnchorShapes| instance containing the anchor shapes in the
+        document.
+        """
+        return AnchorShapes(self._element.body, self)
 
     @lazyproperty
     def numbering_part(self):

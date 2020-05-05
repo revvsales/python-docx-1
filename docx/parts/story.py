@@ -6,7 +6,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from docx.opc.part import XmlPart
-from docx.oxml.shape import CT_Inline
+from docx.oxml.shape import CT_Inline, CT_Anchor
 from docx.shared import lazyproperty
 
 
@@ -57,6 +57,17 @@ class BaseStoryPart(XmlPart):
         cx, cy = image.scaled_dimensions(width, height)
         shape_id, filename = self.next_id, image.filename
         return CT_Inline.new_pic_inline(shape_id, rId, filename, cx, cy)
+
+    def new_pic_anchor(self, image_descriptor, width, height):
+        """Return a newly-created `w:anchor` element.
+
+        The element contains the image specified by *image_descriptor* and is scaled
+        based on the values of *width* and *height*.
+        """
+        rId, image = self.get_or_add_image(image_descriptor)
+        cx, cy = image.scaled_dimensions(width, height)
+        shape_id, filename = self.next_id, image.filename
+        return CT_Anchor.new_pic_anchor(shape_id, rId, filename, cx, cy)
 
     @property
     def next_id(self):

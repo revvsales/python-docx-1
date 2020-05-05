@@ -121,7 +121,11 @@ rst_epilog = """
 
 .. |InlineShape| replace:: :class:`.InlineShape`
 
+.. |AnchorShape| replace:: :class:`.AnchorShape`
+
 .. |InlineShapes| replace:: :class:`.InlineShapes`
+
+.. |AnchorShapes| replace:: :class:`.AnchorShapes`
 
 .. |InvalidSpanError| replace:: :class:`.InvalidSpanError`
 

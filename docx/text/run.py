@@ -9,7 +9,7 @@ from __future__ import absolute_import, print_function, unicode_literals
 from ..enum.style import WD_STYLE_TYPE
 from ..enum.text import WD_BREAK
 from .font import Font
-from ..shape import InlineShape
+from ..shape import InlineShape, AnchorShape
 from ..shared import Parented
 
 
@@ -21,6 +21,7 @@ class Run(Parented):
     not specified directly on the run and its effective value is taken from
     the style hierarchy.
     """
+
     def __init__(self, r, parent):
         super(Run, self).__init__(parent)
         self._r = self._element = self.element = r
@@ -62,6 +63,11 @@ class Run(Parented):
         inline = self.part.new_pic_inline(image_path_or_stream, width, height)
         self._r.add_drawing(inline)
         return InlineShape(inline)
+
+    def add_background_picture(self, image_path_or_stream, width=None, height=None):
+        anchor = self.part.new_pic_anchor(image_path_or_stream, width, height)
+        self._r.add_drawing(anchor)
+        return AnchorShape(anchor)
 
     def add_tab(self):
         """
@@ -186,6 +192,7 @@ class _Text(object):
     """
     Proxy object wrapping ``<w:t>`` element.
     """
+
     def __init__(self, t_elm):
         super(_Text, self).__init__()
         self._t = t_elm

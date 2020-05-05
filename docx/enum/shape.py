@@ -19,4 +19,18 @@ class WD_INLINE_SHAPE_TYPE(object):
     NOT_IMPLEMENTED = -6
 
 
+class WD_ANCHOR_SHAPE_TYPE(object):
+    """
+    Corresponds to WdAnchorShapeType enumeration
+    http://msdn.microsoft.com/en-us/library/office/ff192587.aspx
+    """
+    CHART = 12
+    LINKED_PICTURE = 4
+    PICTURE = 3
+    SMART_ART = 15
+    NOT_IMPLEMENTED = -6
+
+
 WD_INLINE_SHAPE = WD_INLINE_SHAPE_TYPE
+
+WD_ANCHOR_SHAPE = WD_ANCHOR_SHAPE_TYPE

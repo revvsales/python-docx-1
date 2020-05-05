@@ -77,6 +77,10 @@ class Document(ElementProxy):
         run = self.add_paragraph().add_run()
         return run.add_picture(image_path_or_stream, width, height)
 
+    def add_background_picture(self, image_path_or_stream, width=None, height=None):
+        run = self.add_paragraph().add_run()
+        return run.add_background_picture(image_path_or_stream, width, height)
+
     def add_section(self, start_type=WD_SECTION.NEW_PAGE):
         """
         Return a |Section| object representing a new section added at the end
@@ -116,6 +120,16 @@ class Document(ElementProxy):
         glyph, being flowed like other text in a paragraph.
         """
         return self._part.inline_shapes
+
+    @property
+    def anchor_shapes(self):
+        """
+        An |AnchorShapes| object providing access to the anchor shapes in
+        this document. An anchor shape is a graphical object, such as
+        a picture, contained in a run of text and behaving like a character
+        glyph, being flowed like other text in a paragraph.
+        """
+        return self._part.anchor_shapes
 
     @property
     def paragraphs(self):

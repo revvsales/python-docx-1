@@ -251,6 +251,7 @@ property, for example, `paragraph.style.name`.
 - table: add table, add row, add column
 - styles: specify style for paragraph, table
 - picture: add inline picture, auto-scaling
+- background-picture: add anchor picture
 - breaks: add page break
 - tests: full pytest and behave-based 2-layer test suite
 

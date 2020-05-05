@@ -10,7 +10,7 @@ from behave import given, then, when
 
 from docx import Document
 from docx.enum.section import WD_ORIENT, WD_SECTION
-from docx.shape import InlineShapes
+from docx.shape import InlineShapes, AnchorShapes
 from docx.shared import Inches
 from docx.section import Sections
 from docx.styles.styles import Styles
@@ -35,6 +35,11 @@ def given_a_document_having_builtin_styles(context):
 @given('a document having inline shapes')
 def given_a_document_having_inline_shapes(context):
     context.document = Document(test_docx('shp-inline-shape-access'))
+
+
+@given('a document having anchor shapes')
+def given_a_document_having_anchor_shapes(context):
+    context.document = Document(test_docx('shp-anchor-shape-access'))
 
 
 @given('a document having sections')
@@ -177,6 +182,13 @@ def then_document_inline_shapes_is_an_InlineShapes_object(context):
     document = context.document
     inline_shapes = document.inline_shapes
     assert isinstance(inline_shapes, InlineShapes)
+
+
+@then('document.anchor_shapes is an AnchorShapes object')
+def then_document_anchor_shapes_is_an_AnchorShapes_object(context):
+    document = context.document
+    anchor_shapes = document.anchor_shapes
+    assert isinstance(anchor_shapes, AnchorShapes)
 
 
 @then('document.paragraphs is a list containing three paragraphs')
