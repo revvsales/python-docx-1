@@ -145,10 +145,10 @@ class CT_Anchor(BaseOxmlElement):
             '<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" behindDoc="1" locked="0" layoutInCell="1" allowOverlap="1" %s>\n'
             '  <wp:simplePos x="0" y="0" />\n'
             '  <wp:positionH relativeFrom="column" >\n'
-            '    <wp:posOffset> -571500 </wp:posOffset >\n'
+            '    <wp:posOffset> 0 </wp:posOffset >\n'
             '  </wp:positionH >\n'
             '  <wp:positionV relativeFrom="paragraph" >\n'
-            '  <wp:posOffset > -609600 </wp:posOffset >\n'
+            '  <wp:posOffset > 0 </wp:posOffset >\n'
             '  </wp:positionV >\n'
             '  <wp:extent cx="6904934" cy="10033000"/>\n'
             '  <wp:effectExtent l="0" t="0" r="4445" b="0" />\n'
@@ -160,7 +160,13 @@ class CT_Anchor(BaseOxmlElement):
             '  <a:graphic>\n'
             '    <a:graphicData uri="URI not set"/>\n'
             '  </a:graphic>\n'
-            '</wp:anchor>' % nsdecls('wp', 'a', 'pic', 'r')
+            '  <wp14:sizeRelH relativeFrom="page">\n'
+            '    <wp14:pctWidth> 0 </wp14:pctWidth>\n'
+            '  </wp14:sizeRelH>\n'
+            '  <wp14:sizeRelV relativeFrom="page">\n'
+            '    <wp14:pctHeight> 0 </wp14:pctHeight>\n'
+            '  </wp14:sizeRelV>\n'
+            '</wp:anchor>' % nsdecls('wp', 'a', 'pic', 'r', 'wp14')
         )
 
 
