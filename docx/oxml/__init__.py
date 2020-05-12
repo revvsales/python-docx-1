@@ -38,6 +38,7 @@ def register_element_cls(tag, cls):
     nspfx, tagroot = tag.split(':')
     namespace = element_class_lookup.get_namespace(nsmap[nspfx])
     namespace[tagroot] = cls
+    print(namespace, cls)
 
 
 def OxmlElement(nsptag_str, attrs=None, nsdecls=None):

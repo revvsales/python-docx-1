@@ -104,7 +104,7 @@ class CT_Inline(BaseOxmlElement):
 
 class CT_Anchor(BaseOxmlElement):
     """
-    ``<w:anchor>`` element, container for an inline shape.
+    ``<w:anchor>`` element, container for an anchor shape.
     """
     extent = OneAndOnlyOne('wp:extent')
     docPr = OneAndOnlyOne('wp:docPr')
@@ -142,7 +142,7 @@ class CT_Anchor(BaseOxmlElement):
     @classmethod
     def _anchor_xml(cls):
         return (
-            '<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" behindDoc="1" locked="0" layoutInCell="1" allowOverlap="1" %s>\n'
+            '<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" behindDoc="1" locked="0" layoutInCell="1" relativeHeight="251658240" allowOverlap="1" %s>\n'
             '  <wp:simplePos x="0" y="0" />\n'
             '  <wp:positionH relativeFrom="column" >\n'
             '    <wp:posOffset> 0 </wp:posOffset >\n'
@@ -155,9 +155,9 @@ class CT_Anchor(BaseOxmlElement):
             '  <wp:wrapNone />\n'
             '  <wp:docPr id="666" name="unnamed"/>\n'
             '  <wp:cNvGraphicFramePr>\n'
-            '    <a:graphicFrameLocks noChangeAspect="1"/>\n'
+            '    <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>\n'
             '  </wp:cNvGraphicFramePr>\n'
-            '  <a:graphic>\n'
+            '  <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">\n'
             '    <a:graphicData uri="URI not set"/>\n'
             '  </a:graphic>\n'
             '  <wp14:sizeRelH relativeFrom="page">\n'
@@ -166,7 +166,7 @@ class CT_Anchor(BaseOxmlElement):
             '  <wp14:sizeRelV relativeFrom="page">\n'
             '    <wp14:pctHeight> 0 </wp14:pctHeight>\n'
             '  </wp14:sizeRelV>\n'
-            '</wp:anchor>' % nsdecls('wp', 'a', 'pic', 'r', 'wp14')
+            '</wp:anchor>' % nsdecls('wp', 'r', 'wp14')
         )
 
 
