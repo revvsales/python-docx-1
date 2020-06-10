@@ -11,6 +11,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 from docx.oxml.table import CT_Tbl
 from docx.shared import Parented
 from docx.text.paragraph import Paragraph
+from docx.shared import Inches
 
 
 class BlockItemContainer(Parented):
@@ -39,7 +40,7 @@ class BlockItemContainer(Parented):
             paragraph.style = style
         return paragraph
 
-    def add_table(self, rows, cols, width):
+    def add_table(self, rows, cols, width=Inches(6)):
         """
         Return a table of *width* having *rows* rows and *cols* columns,
         newly appended to the content in this container. *width* is evenly
